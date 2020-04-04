@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MovieDetail } from '../movie-detail';
 import { MoviesService } from '../movies.service';
+import { DateFilterService } from '../date-filter.service';
 
 @Component({
   selector: 'app-movie-detail',

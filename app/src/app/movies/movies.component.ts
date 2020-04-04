@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DateFilterService } from '../date-filter.service';
 import { Movie } from '../movie';
 import { MovieSearchResponse } from '../movie-search-response';
 import { MoviesService } from '../movies.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -14,19 +16,35 @@ import { MoviesService } from '../movies.service';
  * Manages the movie listing
  */
 export class MoviesComponent implements OnInit {
+  @Input() movies: Movie[];
+  @Input() currentDateFilter: string;
   totalResults: string;
-  movies: Movie[];
+  decades: string[];
+  filteredMovies: Movie[];
+  subscription: Subscription;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(
+    private moviesService: MoviesService,
+    private dateFilterService: DateFilterService) {
+      this.subscription = this.dateFilterService
+        .getDate()
+        .subscribe(date => {
+          this.currentDateFilter = date;
+          /* This doesn't feel right... need to figure out why ngOnChange isn't triggering */
+          this.filteredMovies = this.fiterMovies();
+        });
+      }
 
   ngOnInit(): void {
-    this.getMovies();
   }
 
-  getMovies(): void {
-    this.moviesService.getMovies().subscribe(movies => {
-      this.totalResults = movies.totalResults;
-      this.movies = movies.Search;
+  ngOnChanges(): void {
+    this.filteredMovies = this.fiterMovies()
+  }
+
+  fiterMovies(): Movie[] {
+    return this.movies.filter((m) => {
+      return m.Year.slice(0, 3) == this.currentDateFilter.slice(0, 3);
     });
   }
 }

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DateFilterService } from '../date-filter.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-decade-toggle',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./decade-toggle.component.scss']
 })
 export class DecadeToggleComponent implements OnInit {
+  @Input() decades: string[];
+  @Input() currentDateFilter: string;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private dateFilterService: DateFilterService) {
+    this.subscription = this.dateFilterService
+      .getDate()
+      .subscribe(date => this.currentDateFilter = date);
+  }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  onFiterDate(date: string) {
+    this.dateFilterService.setDate(date);
   }
 
 }

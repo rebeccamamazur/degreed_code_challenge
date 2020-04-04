@@ -1,4 +1,8 @@
 <div class="app">
-  <app-decade-toggle></app-decade-toggle>
-  <app-movies></app-movies>
+  <app-decade-toggle
+    [decades]="decades"
+    [currentDateFilter]="currentDateFilter"></app-decade-toggle>
+  <app-movies
+    [movies]="movies"
+    [currentDateFilter]="currentDateFilter"></app-movies>
 </div>
