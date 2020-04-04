@@ -1,0 +1,28 @@
+.decade-toggle {
+  margin-bottom: 40px;
+  text-align: right;
+
+  label {
+    background-color: #F7F8F9;
+    border: 1px solid currentColor;
+    color: #C2CAD0;
+    display: inline-block;
+    line-height: 1;
+    padding: 12px 24px;
+    cursor: pointer;
+
+    &.is-active {
+      background-color: #1A72B0;
+      border-color: #1A72B0;
+      color: #fff;
+    }
+
+    &:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+
+    &:last-child {
+      border-radius: 0 3px 3px 0;
+    }
+  }
+}

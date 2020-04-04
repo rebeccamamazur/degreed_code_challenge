@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  color: #303436;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.btn {
+  background-color: #F9B44A;
+  color: #fff;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1;
+  padding: 12px 43px;
+  text-decoration: none;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+}
