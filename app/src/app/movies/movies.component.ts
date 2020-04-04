@@ -43,6 +43,9 @@ export class MoviesComponent implements OnInit {
   }
 
   fiterMovies(): Movie[] {
+    if (!this.currentDateFilter) {
+      return this.movies;
+    }
     return this.movies.filter((m) => {
       return m.Year.slice(0, 3) == this.currentDateFilter.slice(0, 3);
     });

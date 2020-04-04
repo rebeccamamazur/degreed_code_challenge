@@ -10,7 +10,7 @@ export class DateFilterService {
   private filterDate = new Subject<string>();
 
   constructor() {
-    this.filterDate.next('2020');
+    this.filterDate.next('');
   }
 
   setDate(date: string) {

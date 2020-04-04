@@ -13,6 +13,7 @@ export class MovieDetailComponent implements OnInit {
   @Input() imdbID: string;
 
   movie: MovieDetail;
+  trimmedImgSrc: string;
 
   constructor(private moviesService: MoviesService) { }
 
@@ -23,6 +24,8 @@ export class MovieDetailComponent implements OnInit {
   getMovie(id: string): void {
     this.moviesService.getMovieDetail(this.imdbID).subscribe(movie => {
       this.movie = movie;
+      let splitSrc =  movie.Poster.split('/');
+      this.trimmedImgSrc = splitSrc.length < 1 ? '': 'assets/' + splitSrc[splitSrc.length - 1];
     });
   }
 

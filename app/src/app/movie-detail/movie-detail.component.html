@@ -1,6 +1,6 @@
-<div class="movie">
+<div class="movie" *ngIf="movie">
   <div class="movie__img">
-    <img src="{{ movie.Poster }}" alt="Cover of {{ movie.Title }}" />
+    <img *ngIf="trimmedImgSrc" src="{{ trimmedImgSrc }}" alt="Cover of {{ movie.Title }}" />
   </div>
   <div class="movie__info">
     <h2>{{ movie.Title }}</h2>

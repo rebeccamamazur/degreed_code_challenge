@@ -11,7 +11,7 @@ export class AppComponent {
   totalResults: string;
   movies: Movie[];
   decades: string[];
-  currentDateFilter: string;
+  currentDateFilter = '';
 
   constructor(
     private moviesService: MoviesService) { }
@@ -28,14 +28,13 @@ export class AppComponent {
   getMovies(): void {
     this.moviesService.getMovies().subscribe(movies => {
       this.totalResults = movies.totalResults;
-      this.movies = movies.Search;
+      this.movies = movies.Search.sort((m1, m2) => parseInt((m2.Year), 10) - parseInt((m1.Year), 10));
       this.decades = movies.Search.reduce((accum, m) => {
         if (!accum.includes(m.Year.slice(0, 3) + "0")) {
           accum.push(m.Year.slice(0, 3) + "0");
         }
         return accum;
       }, []).sort((a, b) => b - a);
-      this.currentDateFilter = this.decades[0]; /* default filter */
     });
   }
 }
