@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MOVIEDETAIL } from '../mock-movie-detail';
+import { MovieDetail } from '../movie-detail';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,11 +11,18 @@ export class MovieDetailComponent implements OnInit {
   // Get id from parent component
   @Input() imdbID: string;
 
-  movie = MOVIEDETAIL;
+  movie: MovieDetail;
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+    this.getMovie(this.imdbID);
+  }
+
+  getMovie(id: string): void {
+    this.moviesService.getMovieDetail(this.imdbID).subscribe(movie => {
+      this.movie = movie;
+    });
   }
 
 }

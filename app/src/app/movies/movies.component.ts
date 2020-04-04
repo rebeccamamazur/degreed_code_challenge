@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MOVIES } from '../mock-movies';
+import { Movie } from '../movie';
+import { MovieSearchResponse } from '../movie-search-response';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -12,11 +14,19 @@ import { MOVIES } from '../mock-movies';
  * Manages the movie listing
  */
 export class MoviesComponent implements OnInit {
-  movies = MOVIES;
+  totalResults: string;
+  movies: Movie[];
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+    this.getMovies();
   }
 
+  getMovies(): void {
+    this.moviesService.getMovies().subscribe(movies => {
+      this.totalResults = movies.totalResults;
+      this.movies = movies.Search;
+    });
+  }
 }
