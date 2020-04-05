@@ -231,6 +231,9 @@ function DecadeToggleComponent_button_1_Template(rf, ctx) { if (rf & 1) {
 class DecadeToggleComponent {
     constructor(dateFilterService) {
         this.dateFilterService = dateFilterService;
+        this.subscription = this.dateFilterService
+            .getDate()
+            .subscribe(date => this.currentDateFilter = date);
     }
     ngOnInit() { }
     /**

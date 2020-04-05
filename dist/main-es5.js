@@ -448,9 +448,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var DecadeToggleComponent = /*#__PURE__*/function () {
       function DecadeToggleComponent(dateFilterService) {
+        var _this2 = this;
+
         _classCallCheck(this, DecadeToggleComponent);
 
         this.dateFilterService = dateFilterService;
+        this.subscription = this.dateFilterService.getDate().subscribe(function (date) {
+          return _this2.currentDateFilter = date;
+        });
       }
 
       _createClass(DecadeToggleComponent, [{
@@ -699,12 +704,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMovie",
         value: function getMovie(id) {
-          var _this2 = this;
+          var _this3 = this;
 
           this.moviesService.getMovieDetail(this.imdbID).subscribe(function (movie) {
-            _this2.movie = movie;
+            _this3.movie = movie;
             var splitSrc = movie.Poster.split('/');
-            _this2.trimmedImgSrc = splitSrc.length < 1 ? '' : 'assets/' + splitSrc[splitSrc.length - 1];
+            _this3.trimmedImgSrc = splitSrc.length < 1 ? '' : 'assets/' + splitSrc[splitSrc.length - 1];
           });
         }
       }]);
@@ -919,7 +924,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var MoviesComponent = /*#__PURE__*/function () {
       function MoviesComponent(moviesService, dateFilterService) {
-        var _this3 = this;
+        var _this4 = this;
 
         _classCallCheck(this, MoviesComponent);
 
@@ -928,10 +933,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         /* listen for changes on the dateFilterService */
 
         this.subscription = this.dateFilterService.getDate().subscribe(function (date) {
-          _this3.currentDateFilter = date;
+          _this4.currentDateFilter = date;
           /* This doesn't feel like the right spot to do this... need to figure out why ngOnChanges isn't triggering */
 
-          _this3.filteredMovies = _this3.fiterMovies();
+          _this4.filteredMovies = _this4.fiterMovies();
         });
       }
 
@@ -952,14 +957,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "fiterMovies",
         value: function fiterMovies() {
-          var _this4 = this;
+          var _this5 = this;
 
           if (!this.currentDateFilter) {
             return this.movies;
           }
 
           return this.movies.filter(function (m) {
-            return m.Year.slice(0, 3) == _this4.currentDateFilter.slice(0, 3);
+            return m.Year.slice(0, 3) == _this5.currentDateFilter.slice(0, 3);
           });
         }
       }]);
