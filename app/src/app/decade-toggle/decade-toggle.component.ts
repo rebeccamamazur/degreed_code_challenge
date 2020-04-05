@@ -13,15 +13,15 @@ export class DecadeToggleComponent implements OnInit {
   @Input() currentDateFilter: string;
   subscription: Subscription;
 
-  constructor(private dateFilterService: DateFilterService) {
-    this.subscription = this.dateFilterService
-      .getDate()
-      .subscribe(date => this.currentDateFilter = date);
-  }
+  constructor(private dateFilterService: DateFilterService) { }
 
   ngOnInit(): void { }
 
-  onFiterDate(date: string) {
+  /**
+    * onFilterDate
+    * Change decade on click
+    */
+  onFilterDate(date: string) {
     this.dateFilterService.setDate(date);
   }
 

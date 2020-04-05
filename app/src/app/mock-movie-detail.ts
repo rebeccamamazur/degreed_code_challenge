@@ -1,7 +1,7 @@
 /**
  * Mock movie detail data to preserve API limits while building out the demo
  */
-// Pull in movie detail shape from interface definition
+/* Pull in movie detail shape from interface definition */
 import { MovieDetail } from './movie-detail';
 
 export const MOVIEDETAIL: MovieDetail = {

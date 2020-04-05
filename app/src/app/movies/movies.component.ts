@@ -26,11 +26,12 @@ export class MoviesComponent implements OnInit {
   constructor(
     private moviesService: MoviesService,
     private dateFilterService: DateFilterService) {
+      /* listen for changes on the dateFilterService */
       this.subscription = this.dateFilterService
         .getDate()
         .subscribe(date => {
           this.currentDateFilter = date;
-          /* This doesn't feel right... need to figure out why ngOnChange isn't triggering */
+          /* This doesn't feel like the right spot to do this... need to figure out why ngOnChanges isn't triggering */
           this.filteredMovies = this.fiterMovies();
         });
       }
@@ -42,6 +43,11 @@ export class MoviesComponent implements OnInit {
     this.filteredMovies = this.fiterMovies()
   }
 
+  /**
+    * fiterMovies
+    * utility function to trim list of movies by decade or reset
+    * to full list as appropriate
+    */
   fiterMovies(): Movie[] {
     if (!this.currentDateFilter) {
       return this.movies;

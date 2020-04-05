@@ -230,22 +230,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var _movies_movies_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _movies_movies_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./movies/movies.component */
     "./src/app/movies/movies.component.ts");
     /* harmony import */
 
 
-    var _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./movie-detail/movie-detail.component */
     "./src/app/movie-detail/movie-detail.component.ts");
     /* for API calls */
+
+    /* Pulll in our components and interfaces */
     // ng generate automatically imports new components to app and declares them
 
 
@@ -262,19 +258,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         return new (t || AppModule)();
       },
       providers: [],
-      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], // HttpClientInMemoryWebApiModule.forRoot(
-      //   InMemoryDataService, { dataEncapsulation: false }
-      // ),
-      _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]]]
+      imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppModule, {
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _movies_movies_component__WEBPACK_IMPORTED_MODULE_6__["MoviesComponent"], _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_7__["MovieDetailComponent"], _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__["DecadeToggleComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], // HttpClientInMemoryWebApiModule.forRoot(
-        //   InMemoryDataService, { dataEncapsulation: false }
-        // ),
-        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]]
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _movies_movies_component__WEBPACK_IMPORTED_MODULE_5__["MoviesComponent"], _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_6__["MovieDetailComponent"], _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__["DecadeToggleComponent"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]]
       });
     })();
     /*@__PURE__*/
@@ -284,11 +274,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"],
         args: [{
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _movies_movies_component__WEBPACK_IMPORTED_MODULE_6__["MoviesComponent"], _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_7__["MovieDetailComponent"], _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__["DecadeToggleComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], // HttpClientInMemoryWebApiModule.forRoot(
-          //   InMemoryDataService, { dataEncapsulation: false }
-          // ),
-          _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _movies_movies_component__WEBPACK_IMPORTED_MODULE_5__["MoviesComponent"], _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_6__["MovieDetailComponent"], _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__["DecadeToggleComponent"]],
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]],
           providers: [],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         }]
@@ -329,6 +316,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
+    /**
+      * DateFilterService
+      * Manage changes to selected filter value and emits change
+      * to subscribers
+      */
+
 
     var DateFilterService = /*#__PURE__*/function () {
       function DateFilterService() {
@@ -432,7 +425,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r2.onFiterDate(decade_r1);
+          return ctx_r2.onFilterDate(decade_r1);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -455,22 +448,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var DecadeToggleComponent = /*#__PURE__*/function () {
       function DecadeToggleComponent(dateFilterService) {
-        var _this2 = this;
-
         _classCallCheck(this, DecadeToggleComponent);
 
         this.dateFilterService = dateFilterService;
-        this.subscription = this.dateFilterService.getDate().subscribe(function (date) {
-          return _this2.currentDateFilter = date;
-        });
       }
 
       _createClass(DecadeToggleComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+        /**
+          * onFilterDate
+          * Change decade on click
+          */
+
       }, {
-        key: "onFiterDate",
-        value: function onFiterDate(date) {
+        key: "onFilterDate",
+        value: function onFilterDate(date) {
           this.dateFilterService.setDate(date);
         }
       }]);
@@ -695,15 +688,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           this.getMovie(this.imdbID);
         }
+        /**
+          * getMovie
+          * Call movie detail service to get information on current movie
+          * This is something that in a real world case I might try to work
+          * out some sort of local caching behavior to avoid API calls on
+          * ever filter click; for this limited example, it'll do.
+          */
+
       }, {
         key: "getMovie",
         value: function getMovie(id) {
-          var _this3 = this;
+          var _this2 = this;
 
           this.moviesService.getMovieDetail(this.imdbID).subscribe(function (movie) {
-            _this3.movie = movie;
+            _this2.movie = movie;
             var splitSrc = movie.Poster.split('/');
-            _this3.trimmedImgSrc = splitSrc.length < 1 ? '' : 'assets/' + splitSrc[splitSrc.length - 1];
+            _this2.trimmedImgSrc = splitSrc.length < 1 ? '' : 'assets/' + splitSrc[splitSrc.length - 1];
           });
         }
       }]);
@@ -801,8 +802,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       function MoviesService(http) {
         _classCallCheck(this, MoviesService);
 
-        this.http = http; // private apiUrl = 'api/movies';
-
+        this.http = http;
         this.apiUrl = 'http://www.omdbapi.com/?apikey=d57fdb10';
       }
       /* return an Observable here so that the calling component will wait for returned info */
@@ -811,14 +811,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MoviesService, [{
         key: "getMovies",
         value: function getMovies() {
-          // return of(MOVIES);
-          return this.http.get("".concat(this.apiUrl, "&s=Batman")); // return this.http.get<MovieSearchResponse>(`api/movies`);
+          return this.http.get("".concat(this.apiUrl, "&s=Batman"));
         }
       }, {
         key: "getMovieDetail",
         value: function getMovieDetail(id) {
-          // return of(MOVIES);
-          return this.http.get("".concat(this.apiUrl, "&i=").concat(id)); // return this.http.get<MovieDetail>(`api/movie`);
+          return this.http.get("".concat(this.apiUrl, "&i=").concat(id));
         }
       }]);
 
@@ -921,17 +919,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var MoviesComponent = /*#__PURE__*/function () {
       function MoviesComponent(moviesService, dateFilterService) {
-        var _this4 = this;
+        var _this3 = this;
 
         _classCallCheck(this, MoviesComponent);
 
         this.moviesService = moviesService;
         this.dateFilterService = dateFilterService;
-        this.subscription = this.dateFilterService.getDate().subscribe(function (date) {
-          _this4.currentDateFilter = date;
-          /* This doesn't feel right... need to figure out why ngOnChange isn't triggering */
+        /* listen for changes on the dateFilterService */
 
-          _this4.filteredMovies = _this4.fiterMovies();
+        this.subscription = this.dateFilterService.getDate().subscribe(function (date) {
+          _this3.currentDateFilter = date;
+          /* This doesn't feel like the right spot to do this... need to figure out why ngOnChanges isn't triggering */
+
+          _this3.filteredMovies = _this3.fiterMovies();
         });
       }
 
@@ -943,17 +943,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnChanges() {
           this.filteredMovies = this.fiterMovies();
         }
+        /**
+          * fiterMovies
+          * utility function to trim list of movies by decade or reset
+          * to full list as appropriate
+          */
+
       }, {
         key: "fiterMovies",
         value: function fiterMovies() {
-          var _this5 = this;
+          var _this4 = this;
 
           if (!this.currentDateFilter) {
             return this.movies;
           }
 
           return this.movies.filter(function (m) {
-            return m.Year.slice(0, 3) == _this5.currentDateFilter.slice(0, 3);
+            return m.Year.slice(0, 3) == _this4.currentDateFilter.slice(0, 3);
           });
         }
       }]);

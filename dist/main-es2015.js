@@ -107,13 +107,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./decade-toggle/decade-toggle.component */ "./src/app/decade-toggle/decade-toggle.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _movies_movies_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./movies/movies.component */ "./src/app/movies/movies.component.ts");
-/* harmony import */ var _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./movie-detail/movie-detail.component */ "./src/app/movie-detail/movie-detail.component.ts");
+/* harmony import */ var _movies_movies_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./movies/movies.component */ "./src/app/movies/movies.component.ts");
+/* harmony import */ var _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./movie-detail/movie-detail.component */ "./src/app/movie-detail/movie-detail.component.ts");
 
  /* for API calls */
 
-
+/* Pulll in our components and interfaces */
 
 
 
@@ -125,37 +124,25 @@ class AppModule {
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]] });
 AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
-            // HttpClientInMemoryWebApiModule.forRoot(
-            //   InMemoryDataService, { dataEncapsulation: false }
-            // ),
-            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-        _movies_movies_component__WEBPACK_IMPORTED_MODULE_6__["MoviesComponent"],
-        _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_7__["MovieDetailComponent"],
+        _movies_movies_component__WEBPACK_IMPORTED_MODULE_5__["MoviesComponent"],
+        _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_6__["MovieDetailComponent"],
         _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__["DecadeToggleComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
-        // HttpClientInMemoryWebApiModule.forRoot(
-        //   InMemoryDataService, { dataEncapsulation: false }
-        // ),
-        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]] }); })();
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"],
         args: [{
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                    _movies_movies_component__WEBPACK_IMPORTED_MODULE_6__["MoviesComponent"],
-                    _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_7__["MovieDetailComponent"],
+                    _movies_movies_component__WEBPACK_IMPORTED_MODULE_5__["MoviesComponent"],
+                    _movie_detail_movie_detail_component__WEBPACK_IMPORTED_MODULE_6__["MovieDetailComponent"],
                     _decade_toggle_decade_toggle_component__WEBPACK_IMPORTED_MODULE_4__["DecadeToggleComponent"]
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
-                    // HttpClientInMemoryWebApiModule.forRoot(
-                    //   InMemoryDataService, { dataEncapsulation: false }
-                    // ),
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]
+                    _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]
                 ],
                 providers: [],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -180,6 +167,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+  * DateFilterService
+  * Manage changes to selected filter value and emits change
+  * to subscribers
+  */
 class DateFilterService {
     constructor() {
         this.now = new Date();
@@ -226,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 function DecadeToggleComponent_button_1_Template(rf, ctx) { if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DecadeToggleComponent_button_1_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const decade_r1 = ctx.$implicit; const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onFiterDate(decade_r1); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DecadeToggleComponent_button_1_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const decade_r1 = ctx.$implicit; const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onFilterDate(decade_r1); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -239,12 +231,13 @@ function DecadeToggleComponent_button_1_Template(rf, ctx) { if (rf & 1) {
 class DecadeToggleComponent {
     constructor(dateFilterService) {
         this.dateFilterService = dateFilterService;
-        this.subscription = this.dateFilterService
-            .getDate()
-            .subscribe(date => this.currentDateFilter = date);
     }
     ngOnInit() { }
-    onFiterDate(date) {
+    /**
+      * onFilterDate
+      * Change decade on click
+      */
+    onFilterDate(date) {
         this.dateFilterService.setDate(date);
     }
 }
@@ -351,6 +344,13 @@ class MovieDetailComponent {
     ngOnInit() {
         this.getMovie(this.imdbID);
     }
+    /**
+      * getMovie
+      * Call movie detail service to get information on current movie
+      * This is something that in a real world case I might try to work
+      * out some sort of local caching behavior to avoid API calls on
+      * ever filter click; for this limited example, it'll do.
+      */
     getMovie(id) {
         this.moviesService.getMovieDetail(this.imdbID).subscribe(movie => {
             this.movie = movie;
@@ -401,19 +401,14 @@ __webpack_require__.r(__webpack_exports__);
 class MoviesService {
     constructor(http) {
         this.http = http;
-        // private apiUrl = 'api/movies';
         this.apiUrl = 'http://www.omdbapi.com/?apikey=d57fdb10';
     }
     /* return an Observable here so that the calling component will wait for returned info */
     getMovies() {
-        // return of(MOVIES);
         return this.http.get(`${this.apiUrl}&s=Batman`);
-        // return this.http.get<MovieSearchResponse>(`api/movies`);
     }
     getMovieDetail(id) {
-        // return of(MOVIES);
         return this.http.get(`${this.apiUrl}&i=${id}`);
-        // return this.http.get<MovieDetail>(`api/movie`);
     }
 }
 MoviesService.ɵfac = function MoviesService_Factory(t) { return new (t || MoviesService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
@@ -463,11 +458,12 @@ class MoviesComponent {
     constructor(moviesService, dateFilterService) {
         this.moviesService = moviesService;
         this.dateFilterService = dateFilterService;
+        /* listen for changes on the dateFilterService */
         this.subscription = this.dateFilterService
             .getDate()
             .subscribe(date => {
             this.currentDateFilter = date;
-            /* This doesn't feel right... need to figure out why ngOnChange isn't triggering */
+            /* This doesn't feel like the right spot to do this... need to figure out why ngOnChanges isn't triggering */
             this.filteredMovies = this.fiterMovies();
         });
     }
@@ -476,6 +472,11 @@ class MoviesComponent {
     ngOnChanges() {
         this.filteredMovies = this.fiterMovies();
     }
+    /**
+      * fiterMovies
+      * utility function to trim list of movies by decade or reset
+      * to full list as appropriate
+      */
     fiterMovies() {
         if (!this.currentDateFilter) {
             return this.movies;
