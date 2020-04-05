@@ -14,10 +14,10 @@ I used Angular CLI to generate the project, again, for the chance to experiment 
       * **/app/src/app/decade-toggle/ -- scripts and styles for the decade toggle**
       * **/app/src/app/movie-detail/ -- scripts and styles for a single movie card**
       * **/app/src/app/movies/ -- scripts and styles for the movie list loop**
-      * /app/src/app/app.component.* -- scripts, styles, and templates for the root module
+      * /app/src/app/app.component.&ast; -- scripts, styles, and templates for the root module
       * **/app/src/app/date-filter.service.ts -- service to manage which decade is currently selected it and emit it as an observable for the listing and toggle to use it.**
       * **/app/src/app/in-memory-data.service.ts -- this isn't in use in the final product, but was used to test against to save hits against the live API in development**
-      * **/app/src/app/mock* -- Also not in use in the final product; provided static content to test against prior to implementing the in-memory-data.service**
+      * **/app/src/app/mock&ast; -- Also not in use in the final product; provided static content to test against prior to implementing the in-memory-data.service**
       * **/app/src/app/movie-detail.ts, and movie-search-response.ts, movie.ts, and  -- interfaces to define expected shape of a movie detail, the results of a movie search, or a single movie**
       * **/app/src/app/movies.service.ts -- service to make api calls and provide their results as observables.**
     * /app/src/assets/ -- local images
